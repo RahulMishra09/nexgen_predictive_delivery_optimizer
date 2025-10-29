@@ -50,7 +50,7 @@ A fully functional, production-ready ML system for predicting and preventing del
 │  ML Classifier → Delay Risk Score [0-1]                 │
 │  • Logistic Regression (fast, interpretable)            │
 │  • Random Forest (accurate, robust)                      │
-│  • AUC ~85%, Precision ~78%, Recall ~82%                │
+│               │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼

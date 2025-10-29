@@ -104,9 +104,53 @@ Delayed         1.00      0.94      0.97        18
 ---
 
 ## 🏗️ Architecture
+## 🏗️ Architecture
+
+Below is a visual, easy-to-scan architecture for the Predictive Delivery Optimizer — a data → model → action pipeline that powers the Streamlit dashboard and prescription engine.
+
+### Visual (Mermaid)
+
+```mermaid
+flowchart LR
+    Data["📁 Data\n(orders, carriers, tracking, costs)"]
+    FE["🛠️ Feature Engineering\n(30+ features)"]
+    Model["🌲 Random Forest\n(tuned ensemble)"]
+    Score["📊 Risk Scoring\n(probability 0-1)"]
+    Rules["🧭 Prescription Engine\n(rule-based actions)"]
+    Impact["📈 Business Impact\n(cost & ROI)"]
+    UI["🖥️ Streamlit Dashboard"]
+
+    Data --> FE --> Model --> Score --> Rules --> Impact
+    Score --> UI
+    Rules --> UI
+    FE --> UI
 ```
-Data → Feature Engineering → Random Forest → Risk Scoring → Prescriptions → Business Impact → Streamlit Dashboard
+
+### ASCII fallback
+
 ```
+    [Data: orders, carriers, tracking, costs]
+                                 |
+                                 v
+    [Feature Engineering (30+ features)]
+                                 |
+                                 v
+    [Random Forest Model (tuned ensemble)]
+                                 |
+                                 v
+    [Risk Scoring (probability 0-1)] ---> [Streamlit Dashboard]
+                                 |
+                                 v
+    [Prescription Engine (rules & actions)] ---> [Streamlit Dashboard]
+                                 |
+                                 v
+    [Business Impact & Reporting (costs, ROI, saved orders)]
+```
+
+Notes:
+- The feature engine produces a stable set of features used by both training and inference.
+- The prescription engine takes score + features as input and generates prioritized actions (carrier swap, reroute, priority upgrade, etc.).
+- The Streamlit UI surfaces high-risk orders, recommended actions, and business impact metrics for operations teams.
 
 ---
 
@@ -135,6 +179,13 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 Open: `http://localhost:8501`
+Open in browser (local):
+
+http://localhost:8501
+
+Deployed app (live):
+
+https://nexgenpredictivedeliveryoptimizer-g7y7zpgu4uc8r3rq2dgtkp.streamlit.app/#200
 
 ---
 

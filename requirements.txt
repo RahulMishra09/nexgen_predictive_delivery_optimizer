@@ -1,0 +1,24 @@
+# NexGen Predictive Delivery Optimizer - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core Framework
+streamlit>=1.31.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.26.0
+
+# Machine Learning
+scikit-learn>=1.4.0
+xgboost>=2.0.0
+
+# Visualization
+plotly>=5.18.0
+matplotlib>=3.8.0
+
+# Model Persistence
+joblib>=1.3.0
+
+# Optional but recommended
+openpyxl>=3.1.0  # For Excel file support
+python-dateutil>=2.8.0  # For better date parsing
